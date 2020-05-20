@@ -13,9 +13,13 @@ import java.util.Date;
  * PayloadApplicationEvent 的定义是承载任何负载的ApplicationEvent
  */
 
-@Data
-@Builder
-public class UserEvent extends ApplicationEvent {
-    private String name;
-    private Date birthday;
+public class UserEvents {
+
+    @Data
+    @Builder
+    public static class EventDemo{
+        private String name;
+        private Date birthday;
+    }
+
 }

@@ -1,6 +1,6 @@
 package com.mangostiffy.demo;
 
-import com.mangostiffy.demo.domain.model.user.UserEvent;
+import com.mangostiffy.demo.domain.model.user.UserEvents;
 import com.mangostiffy.demo.event.EventUtil;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -18,6 +18,8 @@ public class DemoApplication implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        EventUtil.publishEvent(UserEvent.builder().name("Mike").birthday(new Date()).build());
+        EventUtil.publishEvent(UserEvents.EventDemo.builder().name("Mike").birthday(new Date()).build());
+
+
     }
 }

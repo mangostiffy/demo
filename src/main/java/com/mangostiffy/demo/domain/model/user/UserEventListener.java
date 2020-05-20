@@ -1,6 +1,5 @@
 package com.mangostiffy.demo.domain.model.user;
 
-import org.springframework.context.event.EventListener;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.event.TransactionalEventListener;
@@ -18,7 +17,7 @@ public class UserEventListener {
      * 1:@EventListener
      * 2:{@link org.springframework.context.ApplicationListener}
      * 3:{@link org.springframework.context.event.SmartApplicationListener}
-     * @param userEvent
+     * @param eventDemo
      */
 
     //异步
@@ -27,14 +26,14 @@ public class UserEventListener {
     @TransactionalEventListener(fallbackExecution = true)
     //同步
 //    @EventListener
-    public void onDemo(UserEvent userEvent){
-        System.out.println(userEvent.getName());
+    public void onDemo(UserEvents.EventDemo eventDemo){
+        System.out.println(eventDemo.getName());
 
         //手动注册事务回调
         TransactionSynchronizationManager.registerSynchronization(new TransactionSynchronizationAdapter(){
             @Override
             public void afterCommit() {
-                System.out.println(userEvent.getName());
+                System.out.println(eventDemo.getName());
             }
         });
     }
