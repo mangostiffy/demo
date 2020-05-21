@@ -6,7 +6,6 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class EventUtil {
-    //@Autowired
     private static ApplicationContext applicationContext;
 
     @Autowired

@@ -15,7 +15,7 @@ import java.util.Date;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private Date birthday;
@@ -28,7 +28,16 @@ public class User {
         this.email = email;
     }
 
-    public static void create(String name, Date birthday, String email) {
+    public static User create(String name, Date birthday, String email) {
+        User user = new User();
+        user.setName(name);
+        user.setBirthday(birthday);
+        user.setEmail(email);
+        user.setCreateTime(new Date());
+        return user;
+    }
+
+    private void bye(){
 
     }
 
